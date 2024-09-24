@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Ropa</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #F3E5F5;
+            color: #4A0E4E;
+        }
+        .navbar {
+            background-color: #E1BEE7;
+        }
+        .card {
+            background-color: #F8BBD0;
+            transition: transform 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+        }
+        @media (max-width: 768px) {
+            .navbar-items {
+                display: none;
+            }
+            .navbar-items.show {
+                display: block;
+            }
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: auto;
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar p-4">
+        <div class="container mx-auto flex flex-wrap justify-between items-center">
+            <a href="#" class="text-xl font-semibold">Joyeria y Accesorios Liz</a>
+            <button id="navbar-toggle" class="md:hidden">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div id="navbar-items" class="navbar-items w-full md:w-auto md:flex">
+                <a href="#" class="block mt-4 md:inline-block md:mt-0 md:ml-6 hover:text-pink-500">Joyería</a>
+                <a href="#" class="block mt-4 md:inline-block md:mt-0 md:ml-6 hover:text-pink-500">Ropa</a>
+                <a href="#" class="block mt-4 md:inline-block md:mt-0 md:ml-6 hover:text-pink-500">Accesorios</a>
+                <a href="#" class="block mt-4 md:inline-block md:mt-0 md:ml-6 hover:text-pink-500">Lugares de Entrega</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto p-4">
+        <h1 class="text-3xl font-bold mb-6 text-center animate__animated animate__fadeIn">Nuestra Colección de Ropa</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Producto 1 -->
+            <div class="card rounded-lg shadow-md overflow-hidden animate__animated animate__fadeInUp">
+                <img src="img/IMG-20240924-WA0012.jpg" alt="Vestido Floral" class="w-full h-64 object-cover cursor-pointer">
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold mb-2">Vestido Nescafe</h2>
+                    <p class="text-gray-600 mb-4">$270 MXN</p>
+                    <a href="https://wa.me/9514207852?text=Me%20interesa%20el%20Vestido%20Floral"
+                       class="btn-whatsapp inline-block px-4 py-2 rounded-full text-sm font-semibold">
+                        <i class="fab fa-whatsapp mr-2"></i>Comprar por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="card rounded-lg shadow-md overflow-hidden animate__animated animate__fadeInUp animate__delay-1s">
+                <img src="img/IMG-20240924-WA0013.jpg" alt="Camisa de Lino" class="w-full h-64 object-cover cursor-pointer">
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold mb-2">Vestido Blanco</h2>
+                    <p class="text-gray-600 mb-4">$270 MXN</p>
+                    <a href="https://wa.me/9514207852?text=Me%20interesa%20la%20Camisa%20de%20Lino"
+                       class="btn-whatsapp inline-block px-4 py-2 rounded-full text-sm font-semibold">
+                        <i class="fab fa-whatsapp mr-2"></i>Comprar por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="card rounded-lg shadow-md overflow-hidden animate__animated animate__fadeInUp animate__delay-2s">
+                <img src="img/IMG-20240924-WA0014.jpg" alt="Pantalón de Lino" class="w-full h-64 object-cover cursor-pointer">
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold mb-2">Vestido Rosa</h2>
+                    <p class="text-gray-600 mb-4">$270 MXN</p>
+                    <a href="https://wa.me/9514207852?text=Me%20interesa%20el%20Pantalón%20de%20Lino"
+                       class="btn-whatsapp inline-block px-4 py-2 rounded-full text-sm font-semibold">
+                        <i class="fab fa-whatsapp mr-2"></i>Comprar por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Producto 4 -->
+            <div class="card rounded-lg shadow-md overflow-hidden animate__animated animate__fadeInUp">
+                <img src="img/IMG-20240924-WA0015.jpg" alt="Blusa Elegante" class="w-full h-64 object-cover cursor-pointer">
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold mb-2">Vestido Verde</h2>
+                    <p class="text-gray-600 mb-4">$270 MXN</p>
+                    <a href="https://wa.me/9514207852?text=Me%20interesa%20la%20Blusa%20Elegante"
+                       class="btn-whatsapp inline-block px-4 py-2 rounded-full text-sm font-semibold">
+                        <i class="fab fa-whatsapp mr-2"></i>Comprar por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Producto 5 -->
+            <div class="card rounded-lg shadow-md overflow-hidden animate__animated animate__fadeInUp animate__delay-1s">
+                <img src="img/IMG-20240924-WA0016.jpg" alt="Falda Midi" class="w-full h-64 object-cover cursor-pointer">
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold mb-2">Falda Midi</h2>
+                    <p class="text-gray-600 mb-4">$270 MXN</p>
+                    <a href="https://wa.me/9514207852?text=Me%20interesa%20la%20Falda%20Midi"
+                       class="btn-whatsapp inline-block px-4 py-2 rounded-full text-sm font-semibold">
+                        <i class="fab fa-whatsapp mr-2"></i>Comprar por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Producto 6 -->
+            <div class="card rounded-lg shadow-md overflow-hidden animate__animated animate__fadeInUp animate__delay-2s">
+                <img src="img/IMG-20240924-WA0017.jpg" alt="Chaqueta de Cuero" class="w-full h-64 object-cover cursor-pointer">
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold mb-2">Chaqueta de Cuero</h2>
+                    <p class="text-gray-600 mb-4">$270 MXN</p>
+                    <a href="https://wa.me/9514207852?text=Me%20interesa%20la%20Chaqueta%20de%20Cuero"
+                       class="btn-whatsapp inline-block px-4 py-2 rounded-full text-sm font-semibold">
+                        <i class="fab fa-whatsapp mr-2"></i>Comprar por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Producto 7 -->
+            <div class="card rounded-lg shadow-md overflow-hidden animate__animated animate__fadeInUp">
+                <img src="img/IMG-20240924-WA0018.jpg" alt="Vestido de Noche" class="w-full h-64 object-cover cursor-pointer">
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold mb-2">Vestido de Noche</h2>
+                    <p class="text-gray-600 mb-4">$270 MXN</p>
+                    <a href="https://wa.me/9514207852?text=Me%20interesa%20el%20Vestido%20de%20Noche"
+                       class="btn-whatsapp inline-block px-4 py-2 rounded-full text-sm font-semibold">
+                        <i class="fab fa-whatsapp mr-2"></i>Comprar por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Producto 8 -->
+            <div class="card rounded-lg shadow-md overflow-hidden animate__animated animate__fadeInUp animate__delay-1s">
+                <img src="img/IMG-20240924-WA0019.jpg" alt="Traje Formal" class="w-full h-64 object-cover cursor-pointer">
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold mb-2">Traje Formal</h2>
+                    <p class="text-gray-600 mb-4">$270 MXN</p>
+                    <a href="https://wa.me/9514207852?text=Me%20interesa%20el%20Traje%20Formal"
+                       class="btn-whatsapp inline-block px-4 py-2 rounded-full text-sm font-semibold">
+                        <i class="fab fa-whatsapp mr-2"></i>Comprar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <footer class="bg-purple-100 mt-8 py-4">
+        <div class="container mx-auto text-center">
+            <p>&copy;Joyeria y Accesorios Liz | 2024 </p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('navbar-toggle').addEventListener('click', function() {
+            document.getElementById('navbar-items').classList.toggle('show');
+        });
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                document.getElementById('navbar-items').classList.remove('show');
+            }
+        });
+
+        // Modal de imagen
+        var modal = document.getElementById("imageModal");
+        var modalImg = document.getElementById("modalImage");
+        var span = document.getElementsByClassName("close")[0];
+
+        document.querySelectorAll('.card img').forEach(img => {
+            img.onclick = function(){
+                modal.style.display = "flex";
+                modalImg.src = this.src;
+            }
+        });
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
